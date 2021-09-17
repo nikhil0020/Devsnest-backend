@@ -6,15 +6,23 @@
 ### Basic commands
 
 
-SET key value --- set the key value pair
-GET key --- get the value of a key
-ttl key --- show the expiry time of a key
-KEYS * --- show all keys and their values
-DEL key --- delete the given key value pair
-FLUSHALL --- remove all keys and their values
-EXISTS key --- check if a given key exists or not
-EXPIRE key time --- set a expiry time for a given key
-SETEX key time value --- set an expiry time when setting key value pair
+SET key value --- set the key value pair.
+
+GET key --- get the value of a key.
+
+ttl key --- show the expiry time of a key.
+
+KEYS * --- show all keys and their values.
+
+DEL key --- delete the given key value pair.
+
+FLUSHALL --- remove all keys and their values.
+
+EXISTS key --- check if a given key exists or not.
+
+EXPIRE key time --- set a expiry time for a given key.
+
+SETEX key time value --- set an expiry time when setting key value pair.
 
 ### Array commands
 
