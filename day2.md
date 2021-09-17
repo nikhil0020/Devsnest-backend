@@ -27,6 +27,7 @@ SETEX key time value --- set an expiry time when setting key value pair.
 ### Array commands
 
 LPUSH array value --- push a value to left of the array
+
 RPUSH array value--- push a value to right of the array
 LRANGE array start stop --- get the values from start to stop
 LPOP array --- pop from left
