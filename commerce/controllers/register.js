@@ -14,7 +14,27 @@ const  register = async (req,res)=>{
 
         const newUser = new User({fullName : fullName,email : email.toLowerCase() , password : hash});
         const savedUser = await newUser.save();
+        req.session.User = savedUser;
+        res.status(201).send(savedUser);    
+    }
+    catch(err){
+        console.error(err);
+        res.status(500).send("Something went wrong")
+    }
+}
+const  registerSuperAdmin = async (req,res)=>{
+    const {fullName , email , password }  = req.body;
+    try{
+        const alreadyExists = await User.findOne({ where : {email}});
+        if(alreadyExists){
+            res.status(401).send("Email already exists");
+        }
+        const salt = bcrypt.genSaltSync(saltRounds);
+        const hash = bcrypt.hashSync(password,salt);
 
+        const newUser = new User({fullName : fullName,email : email.toLowerCase() , password : hash , role: "super-admin"});
+        const savedUser = await newUser.save();
+        req.session.User = savedUser;
         res.status(201).send(savedUser);    
     }
     catch(err){
@@ -23,4 +43,4 @@ const  register = async (req,res)=>{
     }
 }
 
-module.exports = register;
+module.exports = {register , registerSuperAdmin};
