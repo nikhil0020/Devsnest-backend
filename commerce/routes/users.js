@@ -13,7 +13,7 @@ const pool = new Pool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  pool.query('SELECT * FROM "Users";',(err,result)=>{
+  pool.query(`SELECT * FROM "Users" where id=$1 and email=$2;`,[req.query.id,req.query.email],(err,result)=>{
     if(err){
       throw err
     }

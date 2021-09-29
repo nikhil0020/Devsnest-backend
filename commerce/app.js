@@ -6,7 +6,6 @@ var logger = require('morgan');
 const {redisClient,RedisStore,session} = require('./database/redis');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const passprt = require('passport');
 const passport = require('passport');
 
 var app = express();
@@ -37,6 +36,7 @@ require("./middlewares/passport")(passport)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/passport',require('./routes/passport'));
+app.use('/products',require('./routes/product'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
