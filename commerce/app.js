@@ -37,7 +37,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/passport',require('./routes/passport'));
 app.use('/products',require('./routes/product'));
-
+app.use('/stream',require('./routes/stream'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
